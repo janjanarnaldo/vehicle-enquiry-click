@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 
-import { NO_IMG_URL } from '../constants/online-urls';
+import { NO_IMG_URL } from '../../constants/online-urls';
 import { vehicles } from '../vehicles';
 
 @Component({
   selector: 'app-vehicles',
-  templateUrl: './vehicles.component.html',
-  styleUrls: ['./vehicles.component.scss']
+  templateUrl: './vehicles-list.component.html',
+  styleUrls: ['./vehicles-list.component.scss']
 })
-export class VehiclesComponent implements OnInit {
+export class VehiclesListComponent implements OnInit {
   vehicles = vehicles;
   noImgUrl = NO_IMG_URL;
 
