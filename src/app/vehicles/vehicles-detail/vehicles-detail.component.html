@@ -1,1 +1,4 @@
-<p>vehicles-detail works!</p>
+<div class="vehicles-details-root" *ngIf="vehicle$ | async as vehicle">
+  <p>{{vehicle.name}}</p>
+  
+</div>

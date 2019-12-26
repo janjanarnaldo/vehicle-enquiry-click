@@ -1,7 +1,7 @@
 <p>Find the best used vehicle for you!</p>
 
 <mat-grid-list cols="3" rowHeight="2:2.4" gutterSize="20px">
-  <mat-grid-tile *ngFor="let vehicle of vehicles">
+  <mat-grid-tile *ngFor="let vehicle of vehicles$ | async">
     <mat-card>
       <p>
         <mat-card-title>

@@ -1,4 +1,4 @@
-export const vehicles = [
+export const mockVehicles = [
   {
     id: 100,
     images: [
