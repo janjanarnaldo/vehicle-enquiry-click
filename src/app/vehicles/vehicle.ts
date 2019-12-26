@@ -3,9 +3,11 @@ interface financeOption {
   period: string,
 }
 
+export type vehicleImagesType = Array <string | object>;
+
 export class Vehicle {
   id: number;
-  images?: Array<string>;
+  images?: vehicleImagesType;
   name: string;
   description: string;
   registeredYear: number;

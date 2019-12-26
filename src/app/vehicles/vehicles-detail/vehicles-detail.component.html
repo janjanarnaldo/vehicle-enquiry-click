@@ -1,4 +1,10 @@
 <div class="vehicles-details-root" *ngIf="vehicle$ | async as vehicle">
   <p>{{vehicle.name}}</p>
-  
+  <div class="image-slider">
+    <ng-image-slider
+      [images]="vehicle.images"
+      [imageSize]="vehicle.images.imageSize | async"
+      #nav
+    ></ng-image-slider>
+  </div>
 </div>
