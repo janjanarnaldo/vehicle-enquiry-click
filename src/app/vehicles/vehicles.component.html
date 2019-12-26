@@ -1,0 +1,17 @@
+<p>Find the best used vehicle for you!</p>
+
+<mat-grid-list cols="3" rowHeight="2:2.4" gutterSize="20px">
+  <mat-grid-tile *ngFor="let vehicle of vehicles">
+    <mat-card>
+      <p>
+        <mat-card-title>
+          {{vehicle.name}}
+        </mat-card-title>
+      </p>
+      <img [class]="!vehicle.images ? 'no-img' : ''" [src]="vehicle.images ? vehicle.images[0] : noImgUrl" [alt]="vehicle.name">
+      <p>{{vehicle.description}}</p>
+      <p>{{vehicle.price}}</p>
+      <button mat-button color="warm">View Details</button>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>
