@@ -26,3 +26,10 @@ export class Vehicle {
   reservationFee: number;
   financeOptions: Array<financeOption>;
 }
+
+export interface make {
+  key: string;
+  value: string;
+}
+
+export interface VehicleMake extends Array<make>{};

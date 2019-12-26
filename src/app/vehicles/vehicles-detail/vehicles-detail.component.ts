@@ -21,7 +21,11 @@ export class VehiclesDetailComponent implements OnInit {
 
   ngOnInit() {
     this.vehicle$ = this.route.paramMap.pipe(
-      switchMap((params: ParamMap) => this.service.getVehicle(params.get('id'), true))
+      switchMap((params: ParamMap) => this.service.getVehicle({
+        id: params.get('id'),
+        buildImages: true,
+        buildMake: true,
+      }))
     );
   }
 
