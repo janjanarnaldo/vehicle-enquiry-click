@@ -6,20 +6,24 @@
       #nav
     ></ng-image-slider>
   </div>
-  <div class="vehicle-details">
-    <mat-list>
-      <h3 matSubheader>Vehicle Make</h3>
-      <mat-list-item *ngFor="let makeDetail of vehicle.makeDetails">
-         <h4 matLine>{{makeDetail.key}}</h4>
-         <p matLine class="demo-2">{{makeDetail.value}}</p>
-      </mat-list-item>
-      <mat-divider></mat-divider>
-      <!-- <h3 matSubheader>Notes</h3>
-      <mat-list-item *ngFor="let note of notes">
-         <mat-icon matListIcon>note</mat-icon>
-         <h4 matLine>{{note.name}}</h4>
-         <p matLine class="demo-2"> {{note.updated}} </p>
-      </mat-list-item> -->
-   </mat-list>
-  </div>
+  <mat-grid-list cols="2" gutterSize="5px">
+    <mat-grid-tile>
+      <div class="vehicle-details">
+        <mat-list>
+          <h3 matSubheader>Vehicle Details</h3>
+          <mat-list-item class="vehicle-detail" *ngFor="let makeDetail of vehicle.makeDetails">
+            <h4>{{makeDetail.key}}</h4>
+            <p>{{makeDetail.value}}</p>
+            <mat-divider></mat-divider>
+          </mat-list-item>
+        </mat-list>
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <div class="actions">
+        <h4>We'd love to hear from you!</h4>
+        <button mat-raised-button color="accent" [routerLink]="['/vehicle', vehicle.id, 'inquiry']">Inquire Now</button>
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
 </div>

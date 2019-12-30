@@ -11,7 +11,7 @@
       <img [class]="!vehicle.images ? 'no-img' : ''" [src]="vehicle.images ? vehicle.images[0] : noImgUrl" [alt]="vehicle.name">
       <p>{{vehicle.description}}</p>
       <p>{{vehicle.price}}</p>
-      <button mat-button color="warm" [routerLink]="['/vehicle', vehicle.id]">View Details</button>
+      <button mat-raised-button color="primary" [routerLink]="['/vehicle', vehicle.id]">View Details</button>
     </mat-card>
   </mat-grid-tile>
 </mat-grid-list>

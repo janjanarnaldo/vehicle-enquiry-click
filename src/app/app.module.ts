@@ -15,7 +15,7 @@ import { EnquiriesComponent } from './enquiries/enquiries.component';
 @NgModule({
   declarations: [
     AppComponent,
-    EnquiriesComponent
+    EnquiriesComponent,
   ],
   imports: [
     BrowserModule,

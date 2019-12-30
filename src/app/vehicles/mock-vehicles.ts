@@ -35,7 +35,11 @@ export const mockVehicles = [
         price: 3900,
         period: 'p/a',
       }
-    ]
+    ],
+    salesPerson: {
+      name: 'Arnaldo Jan',
+      mobile: '+639330886502',
+    },
   },
   {
     id: 101,
@@ -64,7 +68,11 @@ export const mockVehicles = [
         price: 3900,
         period: 'p/a',
       }
-    ]
+    ],
+    salesPerson: {
+      name: 'Arnaldo Jan',
+      mobile: '+639330886502',
+    },
   },
   {
     id: 102,
@@ -93,7 +101,11 @@ export const mockVehicles = [
         price: 3900,
         period: 'p/a',
       }
-    ]
+    ],
+    salesPerson: {
+      name: 'Arnaldo Jan',
+      mobile: '+639330886502',
+    },
   },
   {
     id: 103,
@@ -122,7 +134,11 @@ export const mockVehicles = [
         price: 3900,
         period: 'p/a',
       }
-    ]
+    ],
+    salesPerson: {
+      name: 'Arnaldo Jan',
+      mobile: '+639330886502',
+    },
   },
   {
     id: 104,
@@ -151,6 +167,10 @@ export const mockVehicles = [
         price: 3900,
         period: 'p/a',
       }
-    ]
+    ],
+    salesPerson: {
+      name: 'Arnaldo Jan',
+      mobile: '+639330886502',
+    },
   },
 ];
