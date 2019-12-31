@@ -1,21 +1,21 @@
 <div class="vehicles-inquiry" *ngIf="vehicleId$ | async as vehicleId">
-  <h4>Send Enquiry Now</h4>
+  <h4>Send Enquiry Now (All fields are required)</h4>
 
   <form class="form-container">
     <mat-form-field>
-      <input matInput placeholder="Name (Required)">
+      <input matInput placeholder="Name" required>
     </mat-form-field>
   
     <mat-form-field>
-      <input matInput placeholder="Tel (Required)">
+      <input matInput placeholder="Tel" required>
     </mat-form-field>
   
     <mat-form-field>
-      <input matInput placeholder="Email (Required)" >
+      <input matInput placeholder="Email" required>
     </mat-form-field>
 
     <mat-form-field>
-      <textarea matInput placeholder="Your Enquiry (Required)"></textarea>
+      <textarea matInput placeholder="Your Enquiry" rows="5" required></textarea>
     </mat-form-field>
 
     <!-- TODO: This should call custom api Enquiry Post -->
