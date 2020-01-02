@@ -5,6 +5,11 @@ interface financeOption {
 
 export type vehicleImagesType = Array <string | object>;
 
+type salesPerson = {
+  name: string;
+  mobile: string;
+}
+
 export class Vehicle {
   id: number;
   images?: vehicleImagesType;
@@ -25,6 +30,7 @@ export class Vehicle {
   adminFee: number;
   reservationFee: number;
   financeOptions: Array<financeOption>;
+  salesPerson:salesPerson;
 }
 
 export interface make {

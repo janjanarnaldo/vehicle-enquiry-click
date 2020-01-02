@@ -1,5 +1,8 @@
 import { NgModule }       from '@angular/core';
 
+import { HttpClientModule }    from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
@@ -8,6 +11,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 import { NgImageSliderModule } from 'ng-image-slider';
 
@@ -16,9 +20,12 @@ import { VehiclesDetailComponent }  from './vehicles-detail/vehicles-detail.comp
 import { VehiclesInquiryComponent } from './vehicles-inquiry/vehicles-inquiry.component';
 
 import { VehiclesRoutingModule } from './vehicles-routing.module';
+import { from } from 'rxjs';
 
 @NgModule({
   imports: [
+    HttpClientModule,
+    FormsModule,
     VehiclesRoutingModule,
     NoopAnimationsModule,
     NgImageSliderModule,
@@ -29,6 +36,7 @@ import { VehiclesRoutingModule } from './vehicles-routing.module';
     MatGridListModule,
     MatFormFieldModule,
     MatInputModule,
+    MatSnackBarModule,
   ],
   declarations: [
     VehiclesListComponent,

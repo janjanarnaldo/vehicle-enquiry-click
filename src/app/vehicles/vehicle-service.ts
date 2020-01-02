@@ -1,7 +1,10 @@
 import { Injectable } from '@angular/core';
 
 import { Observable, of } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { map, tap } from 'rxjs/operators';
+
+import { ApiService } from 'src/app/services/api-service';
+import { EnquiryToApi } from 'src/app/enquiries/enquiry';
 
 import { Vehicle } from './vehicle';
 import { mockVehicles } from './mock-vehicles';
@@ -10,8 +13,7 @@ import { vehicleImagesMapperForUI, vehicleMakeMapperForUI } from './vehicle-mapp
 
 interface vehicleParams {
   id: number | string;
-  buildImages?: boolean;
-  buildMake?: boolean;
+  buildOtherProps?: boolean;
 }
 
 @Injectable({
@@ -19,22 +21,34 @@ interface vehicleParams {
 })
 export class VehicleService {
 
-  constructor() { }
+  constructor(private apiService: ApiService) { }
+
+  testEnquiry(): Observable<any> {
+    console.log('here');
+    return this.apiService.http.get(`${this.apiService.enquiriesApiUrl}/test`)
+      .pipe(
+        tap(_ => console.log('fetched test')),
+      );
+  }
 
   getVehicles(): Observable<Vehicle[]> {
     return of(mockVehicles);
   }
 
-  getVehicle({ id, buildImages, buildMake }: vehicleParams) {
+  getVehicle({ id, buildOtherProps }: vehicleParams) {
     return this.getVehicles().pipe(
       map((vehicles: Vehicle[]) => {
         const vehicle: Vehicle = vehicles.find(vehicle => vehicle.id === +id);
-        return buildImages ? {
+        return buildOtherProps ? {
           ...vehicle,
           images: vehicleImagesMapperForUI(vehicle.images, vehicle.name),
           makeDetails: vehicleMakeMapperForUI(vehicle),
         } : vehicle;
       })
     );
+  }
+
+  saveVehicleEnquiry(inquiry: EnquiryToApi): Observable<any> {
+    return this.apiService.http.post(`${this.apiService.enquiriesApiUrl}/store`, inquiry);
   }
 }

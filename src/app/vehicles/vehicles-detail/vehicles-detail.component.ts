@@ -23,8 +23,7 @@ export class VehiclesDetailComponent implements OnInit {
     this.vehicle$ = this.route.paramMap.pipe(
       switchMap((params: ParamMap) => this.service.getVehicle({
         id: params.get('id'),
-        buildImages: true,
-        buildMake: true,
+        buildOtherProps: true,
       }))
     );
   }

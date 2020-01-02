@@ -1,24 +1,79 @@
-<div class="vehicles-inquiry" *ngIf="vehicleId$ | async as vehicleId">
+<div class="vehicles-inquiry" *ngIf="vehicle$ | async as vehicle">
   <h4>Send Enquiry Now (All fields are required)</h4>
 
-  <form class="form-container">
+  <form class="form-container" (ngSubmit)="onSubmit()" #inquiryForm="ngForm">
     <mat-form-field>
-      <input matInput placeholder="Name" required>
+      <input
+        matInput
+        placeholder="Name"
+        required
+        [(ngModel)]="inquiry.name"
+        name="name"
+        #name="ngModel">
     </mat-form-field>
   
     <mat-form-field>
-      <input matInput placeholder="Tel" required>
+      <input
+        matInput
+        placeholder="Mobile (intl format)"
+        required
+        [(ngModel)]="inquiry.mobile"
+        name="mobile"
+        #mobile="ngModel">
     </mat-form-field>
   
     <mat-form-field>
-      <input matInput placeholder="Email" required>
+      <input
+        matInput
+        placeholder="Email"
+        email
+        required
+        [(ngModel)]="inquiry.email"
+        name="email"
+        #email="ngModel">
     </mat-form-field>
 
     <mat-form-field>
-      <textarea matInput placeholder="Your Enquiry" rows="5" required></textarea>
+      <textarea
+        matInput
+        placeholder="Your Enquiry"
+        rows="5"
+        required
+        [(ngModel)]="inquiry.enquiry"
+        name="enquiry"
+        #enquiry="ngModel"></textarea>
     </mat-form-field>
 
-    <!-- TODO: This should call custom api Enquiry Post -->
-    <button mat-raised-button color="primary">SUBMIT ENQUIRY</button>
+    <!-- Below are to override Sales Person details -->
+
+    <h4>For the sake of this exercise, please update the sales person details</h4>
+
+    <mat-form-field>
+      <input
+        matInput
+        placeholder="Seller Name"
+        required
+        [(ngModel)]="inquiry.salesPersonName"
+        name="salesPersonName"
+        #salesPersonName="ngModel">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input
+        matInput
+        placeholder="Seller Mobile (intl format)"
+        required
+        [(ngModel)]="inquiry.salesPersonMobile"
+        name="salesPersonMobile"
+        #salesPersonMobile="ngModel">
+    </mat-form-field>
+
+    <button
+      type="submit"
+      mat-raised-button
+      color="primary"
+      [class.spinner]="submitting"
+      [disabled]="!inquiryForm.form.valid || submitting || submitted"
+    >SUBMIT ENQUIRY</button>
   </form>
 </div>
