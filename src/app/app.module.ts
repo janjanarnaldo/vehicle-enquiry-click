@@ -13,6 +13,8 @@ import { AppComponent } from './app.component';
 
 import { EnquiriesComponent } from './enquiries/enquiries.component';
 
+import { EnvServiceProvider } from './services/env-service-provider';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +30,7 @@ import { EnquiriesComponent } from './enquiries/enquiries.component';
     MatSidenavModule,
     MatListModule,
   ],
-  providers: [],
+  providers: [EnvServiceProvider],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
