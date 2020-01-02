@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 
 import {MatSnackBar} from '@angular/material/snack-bar';
 
-import { buildEnquiryToApi } from 'src/app/enquiries/enquiry-mapppers';
+import { buildEnquiryToAPI } from 'src/app/enquiries/enquiry-mappers';
 
 import { VehicleService } from '../vehicle-service';
 
@@ -60,7 +60,7 @@ export class VehiclesInquiryComponent implements OnInit {
     this.submitted = false;
 
     this.service
-      .saveVehicleEnquiry(buildEnquiryToApi(this.inquiry))
+      .saveVehicleEnquiry(buildEnquiryToAPI(this.inquiry))
       .subscribe(result => {
         this.submitting = false;
         this.submitted = true;

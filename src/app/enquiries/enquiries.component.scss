@@ -1,0 +1,15 @@
+.enquiries-container {
+  overflow: auto;
+
+  table {
+    width: 100%;
+
+    .no-recording {
+      color: red;
+    }
+
+    audio {
+      padding: 5px 0;
+    }
+  }
+}

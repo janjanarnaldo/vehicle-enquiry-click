@@ -1,4 +1,6 @@
 export interface Enquiry {
+  identifier?: string,
+  recordingUrl?: string,
   salesPersonName: string;
   salesPersonMobile: string;
   vehicleId: string;
@@ -8,7 +10,9 @@ export interface Enquiry {
   enquiry: string;
 }
 
-export interface EnquiryToApi {
+export interface EnquiryApi {
+  identifier?: string,
+  recording_url?: string,
   sales_person_name: string;
   sales_person_mobile: string;
   vehicle_id: string;

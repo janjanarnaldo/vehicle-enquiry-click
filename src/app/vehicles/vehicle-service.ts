@@ -4,7 +4,7 @@ import { Observable, of } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
 
 import { ApiService } from 'src/app/services/api-service';
-import { EnquiryToApi } from 'src/app/enquiries/enquiry';
+import { EnquiryApi } from 'src/app/enquiries/enquiry';
 
 import { Vehicle } from './vehicle';
 import { mockVehicles } from './mock-vehicles';
@@ -48,7 +48,7 @@ export class VehicleService {
     );
   }
 
-  saveVehicleEnquiry(inquiry: EnquiryToApi): Observable<any> {
+  saveVehicleEnquiry(inquiry: EnquiryApi): Observable<any> {
     return this.apiService.http.post(`${this.apiService.enquiriesApiUrl}/store`, inquiry);
   }
 }

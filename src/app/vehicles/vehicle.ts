@@ -10,7 +10,7 @@ type salesPerson = {
   mobile: string;
 }
 
-export class Vehicle {
+export interface Vehicle {
   id: number;
   images?: vehicleImagesType;
   name: string;

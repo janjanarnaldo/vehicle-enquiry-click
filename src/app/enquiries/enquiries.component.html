@@ -1,1 +1,53 @@
-<p>enquiries works!</p>
+<p>List of Enquiries</p>
+
+<div class="enquiries-container mat-elevation-z8" *ngIf="enquiries$ | async as enquiries">
+  <table mat-table [dataSource]="enquiries">
+
+    <ng-container matColumnDef="vehicleId">
+      <th mat-header-cell *matHeaderCellDef> Vehicle Id </th>
+      <td mat-cell *matCellDef="let element"> {{element.vehicleId}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="salesPersonName">
+      <th mat-header-cell *matHeaderCellDef> Sales Person Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.salesPersonName}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="salesPersonMobile">
+      <th mat-header-cell *matHeaderCellDef> Sales Person Mobile </th>
+      <td mat-cell *matCellDef="let element"> {{element.salesPersonMobile}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> Customer Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="mobile">
+      <th mat-header-cell *matHeaderCellDef> Customer Mobile </th>
+      <td mat-cell *matCellDef="let element"> {{element.mobile}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="recording">
+      <th mat-header-cell *matHeaderCellDef> Recording </th>
+      <td mat-cell *matCellDef="let element">
+        <audio controls *ngIf="!!element.recordingUrl">
+          <source [src]="element.recordingUrl" type="audio/x-wav">
+        </audio>
+
+        <span class="no-recording" *ngIf="!element.recordingUrl">No Recording</span>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-raised-button color="accent" *ngIf="!element.recordingUrl && !element.callInitiated" [disabled]="element.calling" (click)="onCallSeller(element)">Call Seller</button>
+        <span *ngIf="element.callInitiated">Calling... Please refresh page later.</span>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>
